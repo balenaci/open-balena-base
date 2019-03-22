@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM balenalib/fincm3-debian:stretch as base
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
@@ -43,19 +43,45 @@ RUN apt-get update \
 		wget \
 	&& rm -rf /var/lib/apt/lists/*
 
+ENV GO_VERSION 1.10.5
+
+RUN mkdir -p /usr/local/go \
+	&& curl -SLO "http://resin-packages.s3.amazonaws.com/golang/v$GO_VERSION/go$GO_VERSION.linux-armv7hf.tar.gz" \
+	&& echo "b6fe44574959e8160e456623607fa682db2bdcc0d1e59f57c7000fee9455f7b5  go$GO_VERSION.linux-armv7hf.tar.gz" | sha256sum -c - \
+	&& tar -xzf "go$GO_VERSION.linux-armv7hf.tar.gz" -C /usr/local/go --strip-components=1 \
+	&& rm -f go$GO_VERSION.linux-armv7hf.tar.gz
+
+ENV GOROOT /usr/local/go
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+
 ENV NODE_VERSION 10.14.1
 ENV NPM_VERSION 6.4.1
-
-RUN curl -SL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" | tar xz -C /usr/local --strip-components=1 \
+RUN curl -SL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-armv7l.tar.gz" | tar xz -C /usr/local --strip-components=1 \
+	&& npm config set unsafe-perm true \
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm cache clear --force \
 	&& rm -rf /tmp/*
 
+# We have to build confd as there's no armhf build but we don't want
+# all this extra source in the final container
+FROM base as confd
+
 ENV CONFD_VERSION 0.15.0
 
-RUN wget -O /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 \
+RUN git clone https://github.com/kelseyhightower/confd.git $GOPATH/src/github.com/kelseyhightower/confd \
+	&& cd $GOPATH/src/github.com/kelseyhightower/confd \
+	&& make && make install \
 	&& chmod a+x /usr/local/bin/confd \
 	&& ln -s /usr/src/app/config/confd /etc/confd
+
+# Final base container
+FROM base as main
+
+# Copy confd
+COPY --from=confd /usr/local/bin/confd /usr/local/bin/confd
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
