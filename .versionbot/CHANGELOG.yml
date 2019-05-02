@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'python: switch to v3'
+      hash: 1f9b3784c5f38bd7c5a443f95163b0c12dadba26
+      body: ''
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Will Boyce <will@balena.io>
+        signed-off-by: Will Boyce <will@balena.io>
+      author: Will Boyce
+  version: 8.0.0
+  date: 2019-05-02T08:02:24.465Z
+- commits:
     - subject: 'hostname-vars: Ensure previous hostname envvars aren''t overwritten'
       hash: 8eb1904dc5e5a99f5a92ab22e179f69636ce9e3b
       body: ''
