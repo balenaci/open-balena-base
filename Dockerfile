@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM arm64v8/debian
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
@@ -46,14 +46,14 @@ RUN apt-get update \
 ENV NODE_VERSION 10.16.0
 ENV NPM_VERSION 6.9.0
 
-RUN curl -SL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" | tar xz -C /usr/local --strip-components=1 \
-	&& npm install -g npm@"$NPM_VERSION" \
+RUN curl -SL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-arm64.tar.gz" | tar xz -C /usr/local --strip-components=1 \
+	&& npm install --unsafe-perm -g npm@"$NPM_VERSION" \
 	&& npm cache clear --force \
 	&& rm -rf /tmp/*
 
 ENV CONFD_VERSION 0.16.0
 
-RUN wget -O /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 \
+RUN wget -O /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-arm64 \
 	&& chmod a+x /usr/local/bin/confd \
 	&& ln -s /usr/src/app/config/confd /etc/confd
 
