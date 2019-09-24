@@ -1,4 +1,18 @@
 - commits:
+    - subject: 'Dockerfile: Switch to a non-floating base image + optimizations'
+      hash: 756b7fbf3f062e2b7eef35499c638ffbd8737e0f
+      body: |
+        - Switched to a non-floating base image for improved control.
+        - Reordered some layers, based on the expected frequency of changes.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michael Angelos Simos <michalis@balena.io>
+        signed-off-by: Michael Angelos Simos <michalis@balena.io>
+      author: Michael Angelos Simos
+  version: 8.0.4
+  date: 2019-09-24T08:03:57.865Z
+- commits:
     - subject: "\U0001F512: Update Node to 10.16.3 and NPM to 6.10.3"
       hash: 8714ca3fee1ff44187e0a0c4b6c648d0c2fe550c
       body: ''
