@@ -1,4 +1,16 @@
 - commits:
+    - subject: Include Postgres client for debugging purposes
+      hash: b99642b2546ff044362ec21ab24184a71cb4e5d7
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Juan Cruz Viotti <juan@balena.io>
+        signed-off-by: Juan Cruz Viotti <juan@balena.io>
+      author: Juan Cruz Viotti
+  version: 9.0.1
+  date: 2019-11-11T14:40:39.386Z
+- commits:
     - subject: Update to nodejs 12
       hash: cde7021d266cfba7e6b7055421c7afb0c0dd2781
       body: ''
