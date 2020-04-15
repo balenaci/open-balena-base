@@ -1,4 +1,19 @@
 - commits:
+    - subject: Remove cgroup volume since it makes systemd unable to start
+      hash: 71498fb729c4c06462970c073772eeeb8c45011f
+      body: >
+        We had the same issue in the base images before, from systemd v230
+        onwards, no need to mount cgroup, otherwise systemd will not be able to
+        start.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+        signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+      author: Trong Nghia Nguyen
+  version: 9.2.3
+  date: 2020-04-15T10:40:08.458Z
+- commits:
     - subject: 'Update nodejs to 12.16.2, npm to 6.14.4'
       hash: 116bbb6bf4f9a548a68b959c39d54c8abc2d5bd7
       body: ''
