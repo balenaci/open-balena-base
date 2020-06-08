@@ -1,4 +1,18 @@
 - commits:
+    - subject: Re-publish the image
+      hash: 149903d91ffa36e8b6fad1968fed18cd71af2a8c
+      body: |
+        This commit is only to re-trigger the builds.
+        It's empty.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Roman Mazur <roman@balena.io>
+        signed-off-by: Roman Mazur <roman@balena.io>
+      author: Roman Mazur
+  version: 9.4.1
+  date: 2020-06-08T13:26:34.193Z
+- commits:
     - subject: Update nodejs to 12.18.0
       hash: f7bf6f487ea64af6ffce821974ccddc5646bb6d8
       body: ''
