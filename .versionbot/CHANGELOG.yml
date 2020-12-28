@@ -1,4 +1,39 @@
 - commits:
+    - subject: 'prefix: Subject'
+      hash: efa4477ae9536ddcc58268061400eec21f24be4e
+      body: |
+        Commit body
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Giovanni Garufi <giovanni@balena.io>
+        signed-off-by: Giovanni Garufi <giovanni@balena.io>
+      author: Giovanni Garufi
+      nested: []
+    - subject: 'prefix: Subject'
+      hash: 7155fba57b6f466919e6b1f215ead714f60b3f99
+      body: |
+        Commit body
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Giovanni Garufi <giovanni@balena.io>
+        signed-off-by: Giovanni Garufi <giovanni@balena.io>
+      author: Giovanni Garufi
+      nested: []
+    - subject: 'prefix: Subject'
+      hash: 6abcc37e90b93d8b318b9469546fd303b8c7f295
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Giovanni Garufi <giovanni@balena.io>
+        signed-off-by: Giovanni Garufi <giovanni@balena.io>
+      author: Giovanni Garufi
+      nested: []
+  version: 11.0.3
+  date: 2020-12-28T12:49:30.377Z
+- commits:
     - subject: Update nodejs to 14.15.1
       hash: cf533d8fa978bddd6650f129a010b285be485070
       body: ''
