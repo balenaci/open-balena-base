@@ -1,4 +1,36 @@
 - commits:
+    - subject: Drop CircleCI
+      hash: d3d9f1724c29f9bdb8651195e0b492d9815dab0a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+    - subject: 'prefix: Subject'
+      hash: 7155fba57b6f466919e6b1f215ead714f60b3f99
+      body: |
+        Commit body
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Giovanni Garufi <giovanni@balena.io>
+        signed-off-by: Giovanni Garufi <giovanni@balena.io>
+      author: Giovanni Garufi
+      nested: []
+    - subject: 'prefix: Subject'
+      hash: 6abcc37e90b93d8b318b9469546fd303b8c7f295
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Giovanni Garufi <giovanni@balena.io>
+        signed-off-by: Giovanni Garufi <giovanni@balena.io>
+      author: Giovanni Garufi
+      nested: []
+  version: 11.1.1
+  date: 2021-03-17T15:54:40.688Z
+- commits:
     - subject: Update nodejs to 14.16.0
       hash: ed8a58f5db73244f75d2e10b6b8df9d883247558
       body: ''
