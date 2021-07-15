@@ -1,4 +1,16 @@
 - commits:
+    - subject: Empty
+      hash: 96fd25b03da312b71e4bf7ee51721e66381e30ef
+      body: |
+        * test ab77/git-secrets pipeline
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+  version: 11.1.2
+  date: 2021-07-15T21:25:40.395Z
+- commits:
     - subject: Drop CircleCI
       hash: d3d9f1724c29f9bdb8651195e0b492d9815dab0a
       body: ''
